@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Dining - Order Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background: #2e7d32;
+            color: #fff;
+            padding-top: 20px;
+            min-height: 70px;
+            border-bottom: #1b5e20 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+            margin-top: 10px;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #a5d6a7;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #a5d6a7;
+            font-weight: bold;
+        }
+        .navbar {
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: #333;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: #333;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .fa-icon {
+            margin-right: 8px;
+        }
+        footer {
+            background: #2e7d32;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: auto; /* Push footer to bottom */
+        }
+        .delivery-header {
+            background-color: #436850;
+            color: #FBFADA;
+            padding: 10px;
+            text-align: center;
+        }
+        .delivery-container {
+            padding: 16px;
+            background-color: #ADBC9F;
+        }
+        .delivery-form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .delivery-form h1 {
+            font-size: 25px;
+            font-family: arial;
+            color: #12372A;
+        }
+        .delivery-form p {
+            font-size: 15px;
+            font-family: arial;
+            color: #12372A;
+        }
+        .delivery-form input[type=text], .delivery-form input[type=password], .delivery-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #ddd;
+            border-radius: 4px;
+        }
+        .delivery-form input[type=text]:focus, .delivery-form input[type=password]:focus, .delivery-form textarea:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        .button-common {
+            padding: 15px 32px;
+            width: 180px;
+            height: 55px;
+            margin: 4px 2px;
+            display: inline-block; /* Ensure buttons are aligned */
+            text-align: center;
+            vertical-align: middle;
+            line-height: 25px; /* Adjust based on button height for vertical centering */
+            cursor: pointer;
+            font-family: arial;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+        }
+        .cancelbutton {
+            background-color: #C80036;
+            color: #FBFADA;
+        }
+        .orderbutton {
+            background-color: #436850;
+            color: #FBFADA;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        @media screen and (max-width: 300px) {
+            .cancelbutton, .orderbutton {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        function clearForm() {
+            document.getElementById("deliveryForm").reset();
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1>Delicious Dining</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="current"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li><a href="about_us.html"><i class="fa fa-sitemap" aria-hidden="true"></i> About Us</a></li>
+                <li><a href="promotion.html"><i class="fa fa-tags" aria-hidden="true"></i> Promotion</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i> Meals</a>
+                    <div class="dropdown-content">
+                        <a href="food.html"><i class="fa fa-cutlery" aria-hidden="true"></i> Foods</a>
+                        <a href="drink.html"><i class="fa fa-coffee" aria-hidden="true"></i> Drinks</a>
+                        <a href="dessert.html"><i class="fa fa-birthday-cake" aria-hidden="true"></i> Desserts</a>
+                    </div>
+                </li>
+                <li><a href="order.html"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Order Delivery</a></li>
+                <li><a href="contact.html"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
+                <li><a href="review.html"><i class="fa fa-star" aria-hidden="true"></i> Review</a></li>
+              </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="delivery-container">
+    <div class="delivery-header">
+        <h2 style="font-size: 40px; font-family: arial; color: #FBFADA;">DD Delivery</h2>
+    </div>
+
+    <div class="container">
+        <h3 style="font-size: 35px; font-family: arial; color: #12372A; text-align: center;">HUNGRY when you are at HOME??</h3>
+        <h2 style="font-size: 25px; font-family: arial; color: #436850; text-align: center;">That's okay cuz we can DELIVER it straight to you!</h2>
+        <h3 style="font-size: 25px; font-family: arial; color: #12372A; text-align: center;">Just fill in the delivery form below:</h3>
+
+        <form id="deliveryForm" action="mailto:deliciousdining0@gmail.com" method="post" enctype="text/plain" class="delivery-form">
+            <div class="container">
+                <h1>Delivery Form</h1>
+                <p>Please fill in this form for delivery details.</p>
+                <hr>
+
+                <label for="fullname"><b>Full Name</b></label>
+                <input type="text" placeholder="Enter Full Name" name="fullname" required>
+ 
+                <label for="phonenumber"><b>Phone Number</b></label>
+                <input type="text" placeholder="Enter Phone Number" name="phonenumber" required>
+
+                <label for="address"><b>Address</b></label>
+                <input type="text" placeholder="Enter Address" name="address" required>
+
+                <label for="order"><b>Orders</b></label>
+                <textarea placeholder="List your orders here" name="order" rows="4" required></textarea>
+                
+                <div class="clearfix">
+                    <button type="button" class="button-common cancelbutton" onclick="clearForm()">Cancel Order</button>
+                    <button type="submit" class="button-common orderbutton">Order</button>
+                </div>
+            </div>
+        </form>
+        
+        <p style="text-align: center;">
+            <a href="index.html" class="button">Home</a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    <p><b>&copy; 2024 Delicious Dining. All rights reserved.</b>
+ 	<p><b>Disclaimer Alert:</b> This website is not the official website of Delicious Dining. This website was developed for the purpose of learning XHTML and CSS only.
+</footer>
+
+</body>
+</html>

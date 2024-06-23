@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Dining - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background: #2e7d32;
+            color: #fff;
+            padding-top: 20px;
+            min-height: 70px;
+            border-bottom: #1b5e20 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+            margin-top: 10px;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #a5d6a7;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #a5d6a7;
+            font-weight: bold;
+        }
+        .navbar {
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: #333;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: #333;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .fa-icon {
+            margin-right: 8px;
+        }
+        footer {
+            background: #2e7d32;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: auto; /* Push footer to bottom */
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .company-description {
+            flex: 1;
+        }
+        .company-description h2 {
+            color: #2e7d32;
+            font-size: 24px;
+            margin-top: 0;
+        }
+        .company-description p {
+            line-height: 1.5;
+	    text-align: justify;
+        }
+        .members-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .member {
+            text-align: center;
+            margin: 0 10px;
+        }
+        .member img {
+            width: 150px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2e7d32;
+        }
+        .member p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1>Delicious Dining</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="current"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li><a href="about_us.html"><i class="fa fa-sitemap" aria-hidden="true"></i> About Us</a></li>
+                <li><a href="promotion.html"><i class="fa fa-tags" aria-hidden="true"></i> Promotion</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i> Meals</a>
+                    <div class="dropdown-content">
+                        <a href="food.html"><i class="fa fa-cutlery" aria-hidden="true"></i> Foods</a>
+                        <a href="drink.html"><i class="fa fa-coffee" aria-hidden="true"></i> Drinks</a>
+                        <a href="dessert.html"><i class="fa fa-birthday-cake" aria-hidden="true"></i> Desserts</a>
+                    </div>
+                </li>
+                <li><a href="order.html"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Order Delivery</a></li>
+                <li><a href="contact.html"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
+                <li><a href="review.html"><i class="fa fa-star" aria-hidden="true"></i> Review</a></li>
+                </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="container logo-container">
+        <div>
+            <img src="img/logodd.jpg" alt="Company Logo">
+        </div>
+        <div class="company-description">
+            <h2>Background about Delicious Dining</h2>
+            <p>Welcome to Delicious Dining! At Delicious Dining, we believe in the power of food to bring people together. Our mission is to provide exceptional dining experiences that delight the senses and create lasting memories. With a passion for culinary excellence and a commitment to quality, we have established ourselves as a leader in the hospitality industry.</p>
+            <h2>Our Story</h2>
+            <p>Founded in [2024], Delicious Dining started as a single restaurant with a simple goal: to offer extraordinary meals in a welcoming atmosphere. Over the years, we have grown into a renowned brand with multiple locations, each offering a unique and unforgettable dining experience. A dedication to innovation, sustainability, and a deep respect for the culinary arts has fueled our journey.</p>
+        </div>
+    </div>
+    <div class="container logo-container">
+        <div class="company-description">
+            <h2>Vision</h2>
+            <p>To be the ideal destination for foodies to gather and enjoy superb cuisine, flawless service, and a welcoming environment that creates a lasting impression.</p>
+            <h2>Mission</h2>
+            <p>Our mission is to deliver a memorable dining experience by offering a varied menu made with premium, local ingredients that are served with passion and originality.</p>
+        </div>
+    </div>
+    
+    <h2 style="background:#2e7d32; color: white; font-family: Arial; text-align:center;">The Creator of Delicious Dining</h2>
+    <div class="container members-section">
+        <div class="member">
+            <img src="img/fatin.jpg" alt="Fatin Najiha binti Muhammad Nazri">
+            <p><b>Fatin Najiha binti Muhammad Nazri</b><br>CEO</p>
+        </div>
+        <div class="member">
+            <img src="img/qhairina.jpg" alt="Nur Qhairina Qafiya binti Samsulnizam">
+            <p><b>Nur Qhairina Qafiya binti Samsulnizam</b><br>COO</p>
+        </div>
+        <div class="member">
+            <img src="img/aqilah.jpg" alt="Siti Nur'Aqilah binti Baharudin">
+            <p><b>Siti Nur'Aqilah binti Baharudin</b><br>CTO</p>
+        </div>
+        <div class="member">
+            <img src="img/khadijah.jpg" alt="Siti Nur Khadijah binti Arshad">
+            <p><b>Siti Nur Khadijah binti Arshad</b><br>CFO</p>
+        </div>
+    </div>
+</main>
+<footer>
+    <p><b>&copy; 2024 Delicious Dining. All rights reserved.</b>
+ 	<p><b>Disclaimer Alert:</b> This website is not the official website of Delicious Dining. This website was developed for the purpose of learning XHTML and CSS only.
+
+</footer>
+</body>
+</html>
